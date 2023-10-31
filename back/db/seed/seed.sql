@@ -2,7 +2,7 @@ CREATE TABLE jogadores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     numero_da_camisa INT,
-    jogando BOOLEAN DEFAULT false,
+    jogando BOOLEAN DEFAULT false
 );
 
 CREATE TABLE partida (
