@@ -1,0 +1,31 @@
+version: "3"
+services:
+  mysqldb:
+    image: hramos13/sport-game-db:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sport
+    restart: always
+    ports:
+      - 3306:3306
+
+  api:
+    image: hramos13/sport-game-back:latest
+    ports:
+      - 3001:3001
+    depends_on:
+      - mysqldb
+    restart: always
+    environment:
+      login_host: mysqldb
+      login_user: root
+      login_password: root
+      dbName: sport
+
+  web:
+    image: hramos13/sport-game-front:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+    restart: always
