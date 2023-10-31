@@ -1,7 +1,8 @@
 CREATE TABLE jogadores (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    numero_da_camisa INT
+    numero_da_camisa INT,
+    jogando BOOLEAN DEFAULT false,
 );
 
 CREATE TABLE partida (
@@ -40,17 +41,17 @@ insert into eventos (nome, tipo_de_jogo) values
     ('marcou falta', 'basket'),
     ('impedimento', 'basket');
 
-insert into jogadores (nome, numero_da_camisa) values
-    ('Henrique', 2),
-    ('Joao', 3),
-    ('Miguel', 4),
-    ('Carlos', 5),
-    ('Rui', 6),
-    ('Matheus', 7),
-    ('Gabriela', 8),
-    ('Joel', 9),
-    ('Joana', 10),
-    ('Fernanda', 11),
-    ('Carla', 12),
-    ('Mafalda', 13);
+insert into jogadores (nome, numero_da_camisa, jogando) values
+    ('Henrique', 2, true),
+    ('Joao', 3, true),
+    ('Miguel', 4, true),
+    ('Carlos', 5, true),
+    ('Rui', 6, true),
+    ('Matheus', 7, false),
+    ('Gabriela', 8, false),
+    ('Joel', 9, false),
+    ('Joana', 10, false),
+    ('Fernanda', 11, false),
+    ('Carla', 12, false),
+    ('Mafalda', 13, false);
 

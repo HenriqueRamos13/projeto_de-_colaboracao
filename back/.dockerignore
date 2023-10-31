@@ -1,3 +1,2 @@
-node_modules
-dist
-clone-files
+/node_modules
+/dist

@@ -173,6 +173,7 @@ function App() {
                   ? setSelectedPlayer(null)
                   : setSelectedPlayer(player.id)
               }
+              jogando={player.jogando}
               selected={selectedPlayer === player.id}
             />
           ))}
