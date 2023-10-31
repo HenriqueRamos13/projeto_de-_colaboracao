@@ -1,3 +1,3 @@
-FROM mysql:8.0
+FROM biarms/mysql:5.7
 
 COPY ./seed /docker-entrypoint-initdb.d
