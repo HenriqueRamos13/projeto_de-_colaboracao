@@ -1,0 +1,39 @@
+version: "3"
+services:
+  mysqldb:
+    image: biarms/mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sport
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - ./back/db/seed:/docker-entrypoint-initdb.d
+
+  api:
+    build:
+      context: ./back
+    ports:
+      - 3001:3001
+    depends_on:
+      - mysqldb
+    restart: always
+    environment:
+      login_host: mysqldb
+      login_user: root
+      login_password: root
+      dbName: sport
+    volumes:
+      - ./back:/app
+
+  web:
+    build:
+      context: ./front
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
+    restart: always
+    volumes:
+      - ./front:/app
