@@ -4,10 +4,15 @@ const Player = (props) => {
   return (
     <div
       onClick={props.onClick}
-      className={`w-full relative flex items-center space-x-3 rounded-lg border border-gray-300 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 ${
-        (props.selected ? "bg-blue-400" : "",
-        props.jogando ? "bg-white" : "bg-gray-400")
-      }`}
+      className={`w-full relative flex items-center space-x-3 rounded-lg border border-gray-300 px-6 py-5 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:border-gray-400 
+      ${
+        props.selected
+          ? "bg-blue-400"
+          : props.jogando
+          ? "bg-white"
+          : "bg-gray-400"
+      }
+      `}
     >
       <div className="flex-shrink-0">
         <img

@@ -164,8 +164,14 @@ function App() {
               : "left-[-230px] lg:left-0 hidden lg:flex"
           )}
         >
-          {players.map((player) => (
+          {/* Temporário */}
+          {[-2, -1].map((e) => (
+            <Player name="Hidden" number={0} />
+          ))}
+          {/*  */}
+          {players.map((player, i) => (
             <Player
+              key={i}
               name={player.nome}
               number={player.numero_da_camisa}
               onClick={() =>
